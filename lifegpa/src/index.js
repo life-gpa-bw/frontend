@@ -8,10 +8,10 @@ import {Provider} from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 
-import rootReducer from './reducers';
+import Reducer from './reducers/index';
 
 const store = createStore(
-    rootReducer,
+    Reducer,
     applyMiddleware(thunk, logger)
 );
 
