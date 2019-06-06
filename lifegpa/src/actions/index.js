@@ -1,18 +1,24 @@
-import axios from 'axios'; //what's the deal bruh
+export const UPDATE_TITLE = "UPDATE_TITLE";
+export const ADD_FRIEND = "ADD_FRIEND";
+export const TOGGLE_BESTIES = "TOGGLE_BESTIES";
 
-import { AxiosWithAuth } from '../components/AxiosWithAuth';
+export function updateTitle(newTitle) {
+  return {
+    type: UPDATE_TITLE,
+    payload: newTitle
+  };
+}
 
-export const LOGIN_START = 'LOGIN_START';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export function addFriend(newFriend) {
+  return {
+    type: ADD_FRIEND,
+    payload: newFriend
+  };
+}
 
-export const login = creds => dispatch => {
-    dispatch({ type: LOGIN_START });
-    return axios
-    .post('http://localhost:5000/api/login', creds)
-    .then(res => {
-        localStorage.setItem('token', res.data.payload)
-        dispatch ({ type: LOGIN_SUCCESS, payload: res.data.payload})
-    })
-    .catch(err => console.log(err));
-};
+export function toggleBesties(name) {
+  return {
+    type: TOGGLE_BESTIES,
+    payload: name
+  };
+}

@@ -1,23 +1,29 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 
-import {createStore, applyMiddleware} from 'redux';
-import {Provider} from 'react-redux';
-import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+import rootReducer from "./reducers/reducer";
 
-import Reducer from './reducers/index';
+import Title from "./components/Title";
+import FriendsList from "./components/FriendsList";
+import "./styles.css";
 
-const store = createStore(
-    Reducer,
-    applyMiddleware(thunk, logger)
-);
+const store = createStore(rootReducer);
 
+function App() {
+  return (
+    <div className="App">
+      <Title />
+      <FriendsList />
+    </div>
+  );
+}
+
+const rootElement = document.getElementById("root");
 ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>,
-    document.getElementById("root")
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
 );
