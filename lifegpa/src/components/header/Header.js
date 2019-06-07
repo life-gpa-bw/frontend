@@ -54,9 +54,9 @@ export class Header extends Component {
             <Link to="/dashboard">
               <p>Dashboard</p>
             </Link>
-            <Link to="/settings">
+            {/* <Link to="/settings">
               <p>Settings</p>
-            </Link>
+            </Link> */}
             <Link to={`/login`}>
               <p onClick={this.Logout}>Logout</p>
             </Link>

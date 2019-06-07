@@ -55,10 +55,7 @@ export class Login extends Component {
           />
           <button>SIGN IN</button>
         </form>
-        <p className="terms">
-          By using LifeGPA you agree to the <b>Terms of Service</b> and{" "}
-          <b>Privacy Policy</b>
-        </p>
+        
       </div>
     );
   }
