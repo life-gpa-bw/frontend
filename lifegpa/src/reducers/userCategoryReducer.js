@@ -14,7 +14,7 @@ import {
     GET_HABITS_BY_CATEGORY_REQUEST,
     GET_HABITS_BY_CATEGORY_SUCCESS,
     GET_HABITS_BY_CATEGORY_FAILURE,
-  } from "../actions";
+  } from "../actions/index";
   
   const initialState = {
     users: [],

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import { circleCreator, getCategoryHabits, getUserCategories, calculateGPA } from '../../actions';
+import { circleCreator, getCategoryHabits, getUserCategories, calculateGPA } from '../../actions/index';
 
 class CategoryDetail extends Component {
 

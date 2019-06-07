@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
-import moment from "moment";
-import axiosWithAuth from "../components/axiosWithAuth";
+import moment from "react";
+import axiosWithAuth from '../components/axiosWithAuth';
 
 //Login action creators
 export const LOGIN_REQUEST = "LOGIN_REQUEST";

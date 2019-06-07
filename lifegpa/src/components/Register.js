@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { register, login } from "../actions";
+import { register, login } from "../actions/index";
 import { connect } from "react-redux";
 import "./Register.css";
 

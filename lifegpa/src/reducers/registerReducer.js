@@ -1,4 +1,4 @@
-import { REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE } from "../actions";
+import { REGISTER_START, REGISTER_SUCCESS, REGISTER_FAILURE } from "../actions/index";
 
 const initialState = {
   users: [],

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { toggleDaily } from "../../actions";
+import { toggleDaily } from '../../actions/index';
 import "./Daily.css";
 
 class DailyHabit extends Component {

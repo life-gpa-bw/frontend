@@ -4,11 +4,11 @@ import {
   addHabit,
   getUserHabits,
   deleteHabit
-} from "../../actions";
+} from "../../actions/index";
 import { Link } from "react-router-dom";
 import HabitList from "./HabitList";
 import { connect } from "react-redux";
-import "./Habits.css";
+import "./HabitList.css";
 
 export class Habits extends Component {
   state = {

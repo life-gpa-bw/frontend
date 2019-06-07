@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { CirclePicker } from "react-color";
+import { CirclePicker } from "react";
 import CategoryList from "../onboarding/CategoryList";
 import { Link } from "react-router-dom";
-import { getUserCategories, addCategory, deleteCategory } from "../../actions";
+import { getUserCategories, addCategory, deleteCategory } from "../../actions/index";
 import { connect } from "react-redux";
 import "../onboarding/Categories.css";
 

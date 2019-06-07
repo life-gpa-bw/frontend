@@ -14,7 +14,7 @@ import {
     TOGGLING,
     TOGGLING_SUCCESS,
     TOGGLING_FAILURE
-  } from "../actions";
+  } from "../actions/index";
   
   const initialState = {
     habits: [],

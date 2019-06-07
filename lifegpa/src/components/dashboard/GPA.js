@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { circleCreator, calculateGPA } from '../../actions';
+import { circleCreator, calculateGPA } from '../../actions/index';
 
 class GPA extends React.Component {
     componentDidMount() {

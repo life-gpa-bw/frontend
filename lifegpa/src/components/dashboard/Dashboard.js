@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
-import moment from 'moment';
+import moment from 'react';
 
 import './Dashboard.css';
 
 import GPA from './GPA';
-import { getUserHabits } from '../../actions';
+import { getUserHabits } from '../../actions/index';
 
 
 class Dashboard extends Component {

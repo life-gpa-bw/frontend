@@ -4,11 +4,11 @@ import {
   addHabit,
   getUserHabits,
   deleteHabit
-} from "../../actions";
+} from "../../actions/index";
 import { Link } from "react-router-dom";
-import HabitList from "../onboarding/HabitList";
+import HabitList from '../onboarding/Habits';
 import { connect } from "react-redux";
-import "../onboarding/Habits.css";
+import '../onboarding/HabitList.css';
 
 export class HabitsSettings extends Component {
   state = {

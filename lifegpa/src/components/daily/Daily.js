@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './Daily.css';
 
 import DailyHabit from './DailyHabit';
-import { getUserHabits } from '../actions/index';
+import { getUserHabits } from '../../actions/index';
 
 
 class Daily extends Component {
