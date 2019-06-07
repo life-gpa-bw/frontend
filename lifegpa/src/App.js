@@ -1,90 +1,50 @@
-import React from 'react';
-import ToDoForm from './components/TodoForm';
-import ToDoList from './components/TodoList';
-import './components/Todo.css';
-import Score from './components/Score';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import "./App.css";
 
-const todos = [
-  {
-    task: "Write 3 scenes",
-    id: 1528817077286,
-    completed: false
-  },
-  {
-    task: "Buy cookie dough",
-    id: 1528817084358,
-    completed: false
-  }
-];
+import Categories from "./components/onboarding/Categories";
+import CategoryDetail from "./components/dashboard/CategoryDetail";
+import CategorySettings from "./components/settings/CategorySettings";
+import Daily from "./components/daily/Daily";
+import Dashboard from "./components/dashboard/Dashboard";
+import Details from "./components/dashboard/Details";
+import Habits from "./components/onboarding/Habits";
+import HabitsSettings from "./components/settings/HabitsSettings";
+import Header from "./components/header/Header";
+import Introduction from "./components/onboarding/Introduction";
+import Login from "./components/Login";
+import PrivateRoute from "./components/PrivateRoute";
+import Register from "./components/Register";
 
-class App extends React.Component {
- 
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-  constructor() {
-    super();
-    this.state = {
+const Home = props => (
+  <div className="home">
+    <h1>Welcome to lifeGPA</h1>
+  </div>
+)
 
-      inputField: '',
-
-      todo: todos
-
-    };
-  }
-
-  handleChanges = event => {
-    this.setState({
-      inputField: event.target.value
-    });
-  };
-
-
-  addTodo = event => {
-    event.preventDefault();
-
-    this.setState( {
-      todo:[...this.state.todo, { task: this.state.inputField, id: Date.now(), completed: false } ],
-      inputField:'' 
-     });
-  };
-
-  toggleComplete = id => {
-    const newTodosArray = this.state.todo.map(todo => {
-       if (todo.id === id) {
-         return { ...todo, completed: !todo.completed}
-       }
-      return todo;
-    })
-
-    this.setState( {todo: newTodosArray } );
-  }
-
-  removeCompleted = () => {
-    const clearedTodosArray = this.state.todo.filter((bananaTodo) => {
-      if (!bananaTodo.completed) {
-        return true
-      } else {
-        return false;
-      }
-    })
-    this.setState({ todo: clearedTodosArray})
-  }
-
-
+class App extends Component {
   render() {
     return (
-      <div className = "cool-style">
-        <h1>To-do List</h1>
+      <div className="App">
+      <Header />
+      <div className="App-wrapper">
+        
 
-        <div className = "list-style">
-          <ToDoList todosOnState={this.state.todo} toggleComplete={this.toggleComplete} />
+        
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+
+        <Route exact path="/" component={Home} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <Route exact path="/onboarding" component={Introduction} />
+        <Route exact path="/onboarding/categories" component={Categories} />
+        <Route path="/onboarding/habits" component={Habits} />
+        <Route exact path="/daily" component={Daily} />
+        <Route exact path="/details" component={Details} />
+        <Route exact path="/details/:id" component={CategoryDetail} />
+        <Route exact path="/settings" component={CategorySettings} />
+        <Route exact path="/settings/habits" component={HabitsSettings} />
         </div>
-
-        <ToDoForm addTodo={this.addTodo} todo={this.state.inputField} handleChanges={this.handleChanges} removeCompleted={this.removeCompleted} handleSubmit={this.handleSubmit} />
-
-        <Score />
-
       </div>
     );
   }
