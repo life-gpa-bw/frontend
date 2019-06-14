@@ -1,31 +1,21 @@
-import React from "react";
+import React from 'react';
+import './todo.css';
 
 function Todo(props) {
-    
-  const removeTodo = event => {
-    event.stopPropagation();
+    let bananaNames = "item";
+    if (props.todo.completed) {
+        bananaNames += " purchased";
+    }
 
-    props.removeTodo(props.todo.id);
-  };
+    function updateCompletedHere() {
+        props.toggleComplete(props.todo.id)
+    }
 
-  const toggleTodo = event => {
-    event.stopPropagation();
-
-    props.toggleTodo(props.todo.id);
-  };
-
-  return (
-    <div>
-      <h3 onClick={toggleTodo} key={props.todo.id}>
-        {props.todo.todo}
-        {props.todo.status && <i className="fas fa-check" />}
-
-        <button onClick={removeTodo} key={props.todo.id}>
-        Delete
-      </button>
-      </h3>
-    </div>
-  );
+    return (
+        <div className = {bananaNames} onClick={updateCompletedHere} >
+            {props.todo.task}
+        </div>
+    );
 }
 
 export default Todo;

@@ -1,54 +1,60 @@
-import React, {Component} from 'react';
-import {Button, Form, FormGroup, Input} from 'reactstrap';
-import './Login.css';
+import React, { Component } from 'react'
+import axios from "axios";
 
-class Login extends Component {
-    constructor(props) {
-        super(props) {
-            this.state = {
-                username: '',
-                password: '',
-            };
+export default class Login extends Component {
+    constructor() {
+        super();
+        this.state = {
+    
+          username: '',
+    
+          password: ''
+    
+        };
+      }
+
+      // add change handler function
+      // Does this one work? What should i change value to? username or password?
+      handleChange = event => {
+        this.setState({
+          [event.target.name] : event.target.value
+        });
+      };
+    
+
+
+      // submit login info function
+      loginSubmit = () => {
+        axios
+            .post('https://life-gpa-be.herokuapp.com/api/login', this.state )
+            .then(response => {
+              localStorage.setItem('username', response.data.token)
+              })
+            .catch(err => {
+                console.log(err.message)
+                })
         }
-        handleInputChange = e => {
-            this.setState({ [e.target.name]: e.target.value});
-        };
-        handleLoginSubmit = e => {
-            const user = this.state.username;
-            localStorage.setItem('user', user);
-            window.location.reload();
-        };
+
         render() {
             return (
-                <Form className="login-form">
-                    <h3>Welcome to LifeGPA</h3>
-                    <div>Please Log In</div>
-                    <FormGroup>
-                        <Input
-                            type="text"
-                            placeholder="username"
-                            value={this.state.username}
-                            name="username"
-                            onChange={this.handleInputChange}
-                            />
-                    </FormGroup>
-                    <FormGroup>
-                        <Input
-                            type="password"
-                            placeholder="password"
-                            name="password"
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                            />
-                            <br />
-                            <Button color="success" six="large" onClick={this.handleLoginSubmit}>
-                                Log In
-                            </Button>
-                    </FormGroup>
-                </Form>
-            );
-        }
+                <div>
+                    <form onSubmit={this.loginSubmit} >
+                        <input 
+                        type='text'
+                        onChange={this.changeHandler}
+                        name='username'
+                        placeHolder='Enter your username.'
+                        />
+                        
+                        <input 
+                        type='text'
+                        onChange={this.changeHandler}
+                        name='password'
+                        placeHolder='Enter your password.'
+                        />
+                    </form>
+                    
+                </div>
+        )
     }
 }
-
-export default Login;
